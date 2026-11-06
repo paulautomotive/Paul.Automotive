@@ -259,19 +259,32 @@ nav a:hover {
 }
 
 .video-card {
-    min-height: 280px;
-    background: linear-gradient(145deg, #1c1c1c, #090909);
+    min-height: 360px;
+    aspect-ratio: 9 / 16;
+    background-color: #171717;
+    background-size: cover;
+    background-position: center;
     border: 1px solid #292929;
     border-bottom: 2px solid var(--red);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-end;
     align-items: center;
     gap: 18px;
+    padding: 24px;
     text-decoration: none;
     color: white;
     position: relative;
+    overflow: hidden;
     transition: 0.3s;
+}
+
+.video-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,.18), rgba(0,0,0,.12) 40%, rgba(0,0,0,.82));
+    transition: background 0.3s;
 }
 
 .video-card:hover {
@@ -279,23 +292,32 @@ nav a:hover {
     border-color: var(--red);
 }
 
+.video-number,
+.play-button,
+.video-card span {
+    position: relative;
+    z-index: 1;
+}
+
 .video-number {
     position: absolute;
     top: 20px;
     left: 20px;
-    color: var(--gray);
+    color: white;
     font-weight: 800;
     font-size: 0.8rem;
+    text-shadow: 0 1px 5px #000;
 }
 
 .play-button {
     width: 65px;
     height: 65px;
-    border: 2px solid var(--red);
+    border: 2px solid white;
+    background: rgba(214, 45, 45, .88);
     border-radius: 50%;
     display: grid;
     place-items: center;
-    color: var(--red);
+    color: white;
     font-size: 1.3rem;
     padding-left: 3px;
 }
@@ -305,6 +327,7 @@ nav a:hover {
     font-weight: 700;
     letter-spacing: 1px;
     text-transform: uppercase;
+    text-shadow: 0 1px 5px #000;
 }
 
 /* CONTACT */
